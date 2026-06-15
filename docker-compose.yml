@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  scraper:
+    build: .
+    container_name: data_jobs_scraper
+    restart: unless-stopped
+    volumes:
+      - ./data:/data
+    environment:
+      - DB_PATH=/data/jobs.db
+      - PYTHONUNBUFFERED=1
+    # You can set timezone if needed
+    # environment:
+    #   - TZ=UTC
