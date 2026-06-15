@@ -7,17 +7,17 @@ An autonomous, containerized web scraping system built in Python to track, filte
 This system autonomously curates top-tier data opportunities globally. It eliminates the noise of local residency requirements by processing job descriptions against strict geographic eligibility rules.
 
 ### Features
-1. **Global Collection Engine**: Fetches data opportunities from the Remotive API.
+1. **Global Collection Engine**: Utilizes Playwright to dynamically navigate, render, and scrape modern job portals (e.g., WeWorkRemotely) bypassing simple bot-protections.
 2. **'Open Borders' Filter**: Employs rigorous regex patterns to guarantee the job accepts candidates globally, explicitly looking for terms like `Remote Worldwide`, `LatAm`, `Visa Sponsorship`, etc.
 3. **Silent Exclusion (Red Flags)**: Instantly discards jobs hiding local residency requirements in the text (e.g., `US Only`, `Must reside in the UK`, `No Sponsorship`).
 4. **Tech Stack QA**: Extracts and highlights the modern data ecosystem demanded by the job (Cloud: AWS/GCP/Azure, Big Data: Spark/Databricks, Core: Python/SQL).
-5. **Zero-Touch Operation**: Runs asynchronously every 6 hours via a Python scheduler.
+5. **Zero-Touch Operation**: Runs asynchronously every 6 hours using APScheduler.
 6. **Clean Output**: Stores approved opportunities into a persistent SQLite database containing: Company Name, Job Title, Direct Link, Main Tech Stack, and the exact eligibility proof phrase.
 
 ## Tech Stack
-* Python 3.11
-* `requests` & `beautifulsoup4` (Scraping / HTML parsing)
-* `schedule` (Orchestration)
+* Python 3.11 / Playwright Python Image
+* `playwright` (Headless browser automation)
+* `APScheduler` (Robust asynchronous orchestration)
 * SQLite (Storage)
 * Docker & Docker Compose (Containerization)
 
